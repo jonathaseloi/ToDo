@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTexto"
+        android:text="Texto"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etTexto"
+        android:layout_below="@id/tvTexto"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etTexto"
+        android:id="@+id/tvPrioridade"
+        android:text="Prioridade"/>
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvPrioridade"
+        android:id="@+id/rgPrioridades">
+
+        <RadioButton
+            android:id="@+id/rbVermelho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vermelho" />
+        <RadioButton
+            android:id="@+id/rbAmarelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amarelo"/>
+        <RadioButton
+            android:id="@+id/rbVerde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verde"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgPrioridades"
+        android:id="@+id/tvData"
+        android:text="Data"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvData"
+        android:id="@+id/tvDataPicker"
+        android:text="--/--/----"/>
+</RelativeLayout>
