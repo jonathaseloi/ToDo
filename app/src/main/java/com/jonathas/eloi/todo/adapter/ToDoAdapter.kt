@@ -35,7 +35,7 @@ class ToDoAdapter(private val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val todo = todos!![position]
 
-        holder?.let {
+        holder.let {
             holder.cbTodo.isChecked = todo.feito
             holder.tvTexto.text = todo.texto
 
@@ -47,9 +47,9 @@ class ToDoAdapter(private val context: Context,
                 holder.ivPrioridade.setBackgroundResource(R.color.verde)
             }
 
-            holder.cbTodo!!.setOnCheckedChangeListener { buttonView, isChecked ->
+            holder.cbTodo!!.setOnCheckedChangeListener { _, isChecked ->
                 todo.feito = isChecked
-                clickChanger!!.setFeito(todo)
+                clickChanger.setFeito(todo)
             }
 
             holder.ivDelete!!.setOnClickListener {

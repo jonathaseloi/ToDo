@@ -31,13 +31,6 @@ import com.jonathas.eloi.todo.R.id.calendarView
 import android.graphics.Color.parseColor
 import com.imanoweb.calendarview.DayView
 
-
-
-
-
-
-
-
 class MainActivity : AppCompatActivity() , ToDoAdapter.Changer{
 
     var cal = Calendar.getInstance()

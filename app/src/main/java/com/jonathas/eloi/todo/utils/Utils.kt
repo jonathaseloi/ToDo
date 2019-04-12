@@ -91,19 +91,18 @@ class Utils {
             alertDialog.setView(view)
             alertDialog.setTitle("ToDo") // O Titulo da notificação
 
-            radio_group.setOnCheckedChangeListener(
-                    { group, checkedId ->
-                        val radio: RadioButton = view.findViewById(checkedId)
-                        Toast.makeText(context," On checked change : ${radio.text}",
-                                Toast.LENGTH_SHORT).show()
+            radio_group.setOnCheckedChangeListener { _, checkedId ->
+                val radio: RadioButton = view.findViewById(checkedId)
+                Toast.makeText(context," On checked change : ${radio.text}",
+                        Toast.LENGTH_SHORT).show()
 
-                        todo.prioridade = radio.text as String
-                    })
+                todo.prioridade = radio.text as String
+            }
 
             view.tvDataPicker.setOnClickListener(object : View.OnClickListener {
                 override fun onClick(view: View) {
                         DatePickerDialog(context,
-                                DatePickerDialog.OnDateSetListener { view2, year, month, dayOfMonth ->
+                                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                                     cal.set(Calendar.YEAR, year)
                                     cal.set(Calendar.MONTH, month)
                                     cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
@@ -118,11 +117,11 @@ class Utils {
 
             })
 
-            alertDialog.setPositiveButton("Adicionar", { _, _ ->
+            alertDialog.setPositiveButton("Adicionar") { _, _ ->
 
                 todo.texto = textoTodo.text.toString()
                 if(!view.tvDataPicker!!.text.equals("--/--/----")) {
-//                val date = SimpleDateFormat("dd/MM/yyyy").parse()
+    //                val date = SimpleDateFormat("dd/MM/yyyy").parse()
                     todo.data = view.tvDataPicker!!.text.toString()
                 }
                 todo.feito = false
@@ -130,11 +129,11 @@ class Utils {
                 Utils.salvarTodo(database, todo)
 
                 carregarTodos(database, todosAdapter)
-            })
+            }
 
-            alertDialog.setNegativeButton("Cancelar", { _, _ ->
+            alertDialog.setNegativeButton("Cancelar") { _, _ ->
 
-            })
+            }
             alertDialog.show()
         }
 
